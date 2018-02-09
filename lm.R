@@ -25,15 +25,8 @@ summary(highscore)
 summary(lowscore)
 
 ## 구매후기수에서 유의미한 차이가 있음을 발견하고 이를 변수로 추가하여 다시 모델링##
-(m3 <- lm(score ~ brand + review + pannel,data=tv ))
-summary(m3)
-(m4 <- lm(score ~ brand + review + width + pannel + quality,data=tv))
-summary(m4)
-(m5 <- lm(score ~ brand + review + pannel, data=tv))
-summary(m5)
-
 ## stepwise selection 을 이용하여 AIC가 최소가 되는 최적 모델링 도출 ##
 install.packages("mlbench")
 library(mlbench)
-model <- lm(score ~., data = tv)
+model <- lm(score ~ brand + pannel + review + width + quality, data = tv)
 model2 <- step(model, direction = "both")
