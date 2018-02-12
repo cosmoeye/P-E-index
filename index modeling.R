@@ -5,7 +5,7 @@ tv <- read_excel("tv_data.xlsx")
 ## modeling의 편의상 pannel, quality data를 dummy variable로 변환(excel 함수 이용) ##
 ## pannel : LED = 0, QLED = 1, OLED = 2 (QLED는 아직 이슈가 많고 상용화가 덜 된점에서 OLED보다 낮은 점수를 배정) ##
 ## quality : HD = 0, FullHD = 1, UHD = 2 ##
-## width : 10~30 = 0, 40~60 =1, 70~ =2 ##
+## width : int(화면크기 / 10)
 
 width_z <- scale(tv$width)
 summary(width_z)
